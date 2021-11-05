@@ -1,0 +1,26 @@
+<template>
+    <template if:false={isShow}>
+        <lightning-card>
+            <lightning-button variant="brand" label="Show Opportunity Line Item" title="Show" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </lightning-card>
+    </template>
+
+    <template if:true={isShow}>
+        <lightning-card>
+            <lightning-button variant="brand" label="Hide Opportunity Line Item" title="Show" onclick={handleClickHide} class="slds-m-left_x-small"></lightning-button>
+        </lightning-card>
+    </template>
+
+    <lightning-card>
+        <template if:true={isShow}>
+            <h2> Opportunity Datatable</h2>
+            <template if:true={oppList}>
+            <lightning-datatable data={oppList} columns={columns} key-field="Id">
+            </lightning-datatable>
+        </template>
+        <template if:true={error}>
+            {error}
+        </template>
+        </template>
+    </lightning-card>
+</template>
